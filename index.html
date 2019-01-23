@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href='main.css' rel="stylesheet" />
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+
+ 		<input type="text" @keyup.enter="addTask" v-model="currentTask">
+ 		<ul>
+ 			<li 
+ 			v-for="task in tasks"
+ 			:class="{'strike':task.isCompleted}">
+ 				<span
+				@click="task.isCompleted = !task.isCompleted"
+ 				>{{task.text}}</span>
+ 				<button @click="removeTask(task.text)">X</button>
+ 			</li>
+ 		</ul>
+	</div>
+	
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
